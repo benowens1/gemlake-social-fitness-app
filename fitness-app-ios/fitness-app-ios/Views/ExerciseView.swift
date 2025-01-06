@@ -77,7 +77,7 @@ struct ExerciseView: View {
                         .padding(.vertical, 8)
                     }
 
-                    NavigationLink(destination: ListExercisesView()) {
+                    NavigationLink(destination: ListExercisesView2()) {
                         HStack {
                             Image(systemName: "list.bullet")
                                 .foregroundColor(.black)
