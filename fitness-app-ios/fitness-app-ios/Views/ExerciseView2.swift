@@ -1,33 +1,27 @@
 //
-//  WorkoutView.swift
+//  ExerciseView2.swift
 //  fitness-app-ios
 //
-//  Created by Ben Owens on 24/10/2024.
+//  Created by Ben Owens on 06/01/2025.
 //
+
 
 import SwiftUI
 
-struct ExerciseView: View {
+struct ExerciseView2: View {
+    @Binding var isWorkoutActive: Bool
+    
     var body: some View {
         NavigationView {
             List {
                 // Quick Start Section
                 Section(header: Text("Quick Start")) {
-//                    Button(action: {
-//                        // Placeholder action for starting a new workout
-//                    }) {
-//                        HStack {
-//                            Image(systemName: "plus.circle.fill")
-//                                .foregroundColor(.black)
-//                                .font(.title2)
-//                            Text("Start Workout")
-//                                .font(.headline)
-//                                .foregroundColor(.primary)
-//                        }
-//                        .padding(.vertical, 8)
-//                    }
-                    
-                    NavigationLink(destination: WorkoutBuilderView()) {
+
+                    Button(action: {
+                        withAnimation {
+                            isWorkoutActive = true
+                        }
+                    }) {
                         HStack {
                             Image(systemName: "plus.circle.fill")
                                 .foregroundColor(.black)
@@ -89,7 +83,7 @@ struct ExerciseView: View {
                         .padding(.vertical, 8)
                     }
 
-                    NavigationLink(destination: ListExercisesView2()) {
+                    NavigationLink(destination: ListExercisesView3()) {
                         HStack {
                             Image(systemName: "list.bullet")
                                 .foregroundColor(.black)
@@ -117,35 +111,35 @@ struct ExerciseView: View {
     }
 }
 
-//struct WorkoutRowView: View {
-//    let workoutName: String
-//
-//    var body: some View {
-//        HStack {
-//            VStack(alignment: .leading) {
-//                Text(workoutName)
-//                    .font(.headline)
-//                Text("Summary of exercises")
-//                    .font(.subheadline)
-//                    .foregroundColor(.gray)
-//                    .lineLimit(1)
-//            }
-//            Spacer()
-//            Button(action: {
-//                // Placeholder for starting the workout
-//            }) {
-//                Text("Start Workout")
-//                    .font(.subheadline)
-//                    .padding(6)
-//                    .background(Color.green)
-//                    .foregroundColor(.white)
-//                    .cornerRadius(8)
-//            }
-//        }
-//        .padding(.vertical, 4)
-//    }
-//}
+struct WorkoutRowView: View {
+    let workoutName: String
+
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(workoutName)
+                    .font(.headline)
+                Text("Summary of exercises")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .lineLimit(1)
+            }
+            Spacer()
+            Button(action: {
+                // Placeholder for starting the workout
+            }) {
+                Text("Start Workout")
+                    .font(.subheadline)
+                    .padding(6)
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+        }
+        .padding(.vertical, 4)
+    }
+}
 
 #Preview {
-    ExerciseView()
+    ExerciseView2(isWorkoutActive: .constant(false))
 }

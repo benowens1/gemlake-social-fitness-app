@@ -52,6 +52,9 @@ struct SettingsView: View {
 
                 // Preferences section
                 Section(header: Text("Preferences")) {
+                    NavigationLink(destination: Text("Workouts")) {
+                        SettingsRow(icon: "dumbbell", title: "Workouts")
+                    }
                     NavigationLink(destination: Text("Privacy")) {
                         SettingsRow(icon: "lock", title: "Privacy")
                     }
